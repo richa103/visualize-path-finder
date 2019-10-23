@@ -1,0 +1,403 @@
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 0px;
+}
+
+
+
+div{
+}
+h4.title{
+  float: left;
+  margin-left: 15px;
+  color: white;
+  /*border: .1px inset #66FCF1; */
+}
+
+.board-row/*:after*/ {
+  display: flex;
+  height: 2.11vh;
+  padding: 0px;
+  max-width: 99.5vw;
+
+}
+
+.iconsFire{
+  color: red;
+}
+.icons{
+  font-size: 80% !important;
+  text-align:center;
+}
+
+.square, .blue, .orange, .black, .white {
+  border: .3px solid #e6f7ff; /*#ccf2ff */
+  /*float: left; */
+  margin: 0px;
+  flex-wrap: nowrap;
+  height: 100%;
+  flex: 1;
+}
+.white{
+  background: white;
+}
+.searchVis{
+  background-color: #40cee3; /*For visualization in the legend*/
+}
+.blueVis{ /*visualization in legend of maze wall*/
+  background-color: #0000b3;
+}
+.orangeVis{ /*Visualization in legend of path found*/
+  background-color: #cc7a00;
+}
+
+.blue{ /*SEARCHING THE SPACE*/
+  animation-name: finding;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  background: red;
+  background: #40cee3;
+}
+.red{
+  background: red;
+}
+
+.orange{ /*PATH FOUND*/
+  animation-name: searching;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  background: red;
+  background: #cc7a00;
+}
+.iconPadding{
+  padding-left: 3.5px;
+}
+.visualSquare{
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  margin-left: 10px;
+}
+.black {/*MAZE WALL*/
+  animation-name: stretch;
+  animation-duration: .4s; /*.25*/
+  animation-timing-function: ease-in;
+  animation-delay: none;
+  animation-iteration-count: 1;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  background: #0000b3;
+}
+.nodesStretch{
+  animation-name: nodesStretch;
+  animation-duration: .5s; /*.25*/
+  animation-timing-function: ease-in;
+  animation-delay: none;
+  animation-iteration-count: 1;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+.optimalPath{
+  padding-left: 4px;
+  padding-top: 4px;
+  animation-name: RouteFound;
+  animation-duration: .25s; /*.25*/
+  animation-timing-function: ease-in;
+  animation-delay: none;
+  animation-iteration-count: 1;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  opacity: 0;
+}
+.popUpWindowOpen{
+  position: fixed;
+  bottom: 24.5vh;
+  right: 5vw;
+  border: 1.5px solid #0000b3/*#73AD21 */;
+  height: 55vh;
+  width: 90vw;
+  background-color: white;
+  animation-name: OpenDialogBox;
+  animation-duration: .3s; /*.25*/
+  animation-timing-function: ease-in;
+  animation-delay: none;
+  animation-iteration-count: 1;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  opacity: 1;
+}
+.popUpWindowClose{
+  display: none;
+}
+h3,h4{
+  padding-left: .5vw;
+}
+p{
+  padding: 1px;
+  font-size: 13px;
+  /*14px "Century Gothic", Futura, sans-serif; */
+}
+.liFormat li{
+  padding: 4px;
+  font-size: 13px;
+  float: none;
+
+}
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
+
+
+
+.game-info {
+  margin-left: 20px;
+}
+
+/* Add a black background color to the top navigation */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #34495e;
+  /*border: 5px inset #66FCF1; */
+}
+
+li {
+  float: left;
+  padding-top: 30px;
+}
+
+li button, .dropbtn {
+
+  display: inline-block;
+  color: white;
+  background-color: #34495e;
+  text-align: center;
+  padding: 5px 10px;
+  text-decoration: none;
+  font-size: .85em;
+  font-weight: bold;
+  border: none;
+  background: none;
+}
+
+li button:hover, .dropdown:hover .dropbtn {
+  color: #1abc9c;
+  font-size: .85em;
+  padding: 5px 10px;
+  border: none;
+  background: none;
+}
+
+.smallerLeftPadding{
+  padding-left: 10px;
+}
+.leftPadding{
+  padding-left: 25px;
+}
+
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #34495e;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content button {
+  color: white;
+  font-size: .85em;
+  padding: 12px 16px;
+  font-weight: normal;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content button:hover {background-color: #34495e;;
+  color: #1abc9c;
+  font-size: .85em;
+  padding: 12px 16px;
+  text-decoration: none;
+  font-weight: normal;
+  display: block;
+  text-align: left;
+
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+
+}
+.flex-container > div {
+  text-align: center;
+  width: 150px;
+  margin: 10px;
+  text-align: center;
+  line-height: 50px;
+  font-size: .8em;
+  font-weight: bolder;
+  color: #b30086/*#cc0099; */
+
+}
+.greenMoney{
+  color: green;
+}
+.blackIcon{
+  color: black;
+}
+
+@media screen and (max-width: 1100px){
+  h4.title{
+    float: top;
+    margin-right: 10px;
+    border: .1px inset #66FCF1;
+    color: white;
+  }
+  li{
+    padding-top: 15px;
+  }
+  .flex-container > div {
+    text-align: center;
+    width: 120px;
+    margin: 10px;
+    text-align: center;
+    line-height: 50px;
+    font-size: .65em;
+    font-weight: bolder;
+    color: #b30086/*#cc0099; */
+
+  }
+
+}
+@media screen and (max-height: 400px){ for 1920 x 1080p screens
+  h3,h4{
+    padding-left: .5vw;
+  }
+  p{
+    padding: 1px;
+    font-size: .8vh;
+    font-weight: bolder;
+    /*14px "Century Gothic", Futura, sans-serif; */
+  }
+  .liFormat li{
+    padding: 4px;
+    font-size: .8vh;
+    font-weight: bolder;
+    float: none;
+
+  }
+}
+@media screen and (max-height: 800px){ for 1920 x 1080p screens
+  h3,h4{
+    padding-left: .5vw;
+  }
+  p{
+    padding: 1px;
+    font-size: 10px;
+    font-weight: bolder;
+    /*14px "Century Gothic", Futura, sans-serif; */
+  }
+  .liFormat li{
+    padding: 4px;
+    font-size: 10px;
+    font-weight: bolder;
+    float: none;
+
+  }
+}
+@keyframes OpenDialogBox{
+  0%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 100;
+  }
+}
+
+@keyframes stretch {
+  0% {
+    transform: scale(1);
+    background-color: white;
+  }
+  80% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1.0);
+    background-color: #0000b3;
+  }
+}
+@keyframes searching {
+  0% {
+    transform: scale(.6);
+    background-color: orange;
+    border-radius: 100%;
+  }
+
+  50% {
+    transform: scale(1.0);
+    background-color: red;
+    border-radius: 0%;
+  }
+  100% {
+    transform: scale(1.0);
+    background-color: #cc7a00;
+  }
+}
+
+@keyframes finding {
+  0% {
+    transform: scale(.55);
+    border-radius: 100%;
+    background-color: #cc0099/*#00b300/*#00cc00*/;
+  }/*
+  50%{
+    background-color: #e9f9fc;
+  }*/
+
+  10% {
+    background-color: #a6e8f2;
+  }
+  100% {
+    border-radius: 0%;
+    transform: scale(1.0);
+    background-color: #40cee3;
+  }
+}
+
+@keyframes nodesStretch{
+  0%{
+    transform: scale(.3);
+  }
+  10%{
+    transform: scale(.7);
+  }
+  100%{
+    transform: scale(1.0);
+  }
+}
