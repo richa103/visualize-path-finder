@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+#### https://richa103.github.io/visualize-path-finder/
+  Link to view the program https://richa103.github.io/visualize-path-finder/
+
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -8,14 +12,6 @@ In the project directory, you can run:
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
@@ -27,42 +23,34 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+#### https://richa103.github.io/visualize-path-finder/
+  Link to view the program https://richa103.github.io/visualize-path-finder/
+  
+  ### Squares
+ The pathfinding Visualizer was uses various state updates to rerender the squares on the screen. On a full viewport the grid
+ is 40 x 100 grid. On a half screen the grid is 40 x 50. Each square is a seperate element with a single integer prop passed to it, to
+ signify if it is a maze wall, open square, start, waypoint, end, searchspace, or optimal path node. CSS animations reflect the current 
+ prop value passed to each square. Each square only rerenders if a prop changes.
+ 
+ ### Delayed Animations features
+ All delayed animations are set using javascript timeout Triggers that delay setting the state of individual squares. This delay, is to
+ better reflect the search algorithms and the nature of the recursive division algorithms.
+ 
+ ### Mouse Events
+ Various onClick events are tied to different handleClick functions depending on which React class called the onClick event. 
+ Other mouse events used are onMouseEnter, OnMouseDown, and OnMouseUp to handle drawing maze squares using the cursor while a 
+ mouse button is down and to drag the start, waypoint, or end nodes.
+ 
+ ### States
+ There are a varied amounts of states to reflect the current nature of the program. For example, if an algorithm has been called and
+ on drag events of start, waypoint, or end nodes happen, then the algorithm should reflect realtime changes on screen instead of delayed
+ CSS animations. A flag is set in the game class that does not call the timeoutTrigger function, that is usually called.
+ 
+ ### Buttons, Drop down menus
+ The Buttons and drop down menus at the top of the scren have onClick events that call handleClick functions that clear the board or
+ reset the start, waypoint, end nodes or create a maze pattern or run the chosen algorithm.
+ For example a choice in the Algorithm drop down menu sets the state of algoChoice to the chosen algorithm. Then the start button
+ calls the algorithm's choice from a switch statement in the handleAlgorithmClick function with the chosen algorithm.
+ 
+ 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
