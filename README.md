@@ -27,10 +27,10 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
   Link to view the program https://richa103.github.io/visualize-path-finder/
   
   ### Squares
- The pathfinding Visualizer was uses various state updates to rerender the squares on the screen. On a full viewport the grid
- is 40 x 100 grid. On a half screen the grid is 40 x 50. Each square is a seperate element with a single integer prop passed to it, to
+ The pathfinding Visualizer uses various state updates to rerender the squares on the screen. On a full viewport the grid
+ is 40 x 100 grid. On a half screen the grid is 40 x 50. Each square is a seperate element with a single integer prop passed to it to
  signify if it is a maze wall, open square, start, waypoint, end, searchspace, or optimal path node. CSS animations reflect the current 
- prop value passed to each square. Each square only rerenders if a prop changes.
+ prop value passed to each square. Each square only rerenders if a prop changes. Icons are imported from FontAwesome.
  
  ### Delayed Animations features
  All delayed animations are set using javascript timeout Triggers that delay setting the state of individual squares. This delay, is to
@@ -42,9 +42,9 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
  mouse button is down and to drag the start, waypoint, or end nodes.
  
  ### States
- There are a varied amounts of states to reflect the current nature of the program. For example, if an algorithm has been called and
- on drag events of start, waypoint, or end nodes happen, then the algorithm should reflect realtime changes on screen instead of delayed
- CSS animations. A flag is set in the game class that does not call the timeoutTrigger function, that is usually called.
+ There are a varied amount of states to reflect the current nature of the program. For example, if an algorithm has been called once
+ without resetting, then on drag events of the start, waypoint, or end nodes should reflect realtime changes on the screen
+ instead of delayed CSS animations. A flag is set in the game class that does not call the timeoutTrigger function, that is usually called.
  
  ### Buttons, Drop down menus
  The Buttons and drop down menus at the top of the scren have onClick events that call handleClick functions that clear the board or
